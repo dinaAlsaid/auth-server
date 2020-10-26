@@ -2,6 +2,7 @@
 
 const express = require('express');
 const BasicAuthMW = require('./auth/middleware/basicAuth.js')
+const user=require('./models/user-collection.js')
 
 const server = express();
 server.use(express.json());
@@ -10,14 +11,20 @@ server.post('/signup',signupHandler)
 server.post('/signin',BasicAuthMW,signinHandler)
 server.get('/users',getUsersHandler)
 
-function signupHandler (req,res){}
+function signupHandler (req,res){
+  user.Model.methods.createHash(req.body).then((data)=>{
+    const token = user.Model.methods.generateToken(data)
+    console.log("token",token)
+    res.json({ token })
+  })
+}
 function signinHandler (req,res){}
 function getUsersHandler (req,res){}
 
 module.exports = {
   server: server,
   start: (port) => {
-    app.listen(port, () => {
+    server.listen(port, () => {
       console.log(`listening to port ${port}`);
     });
   },

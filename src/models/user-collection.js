@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET || 'shhhhThisIsASecret';
 
 const user = mongoose.Schema({
-  username: { type: 'string', required: true },
+  username: { type: 'string', required: true, unique: true },
   password: { type: 'string', required: true },
 });
 
@@ -20,10 +20,10 @@ user.methods.authenticate = async function (username, password) {
     return Promise.reject('no username found');
   }
 };
-user.methods.createHash = async function (password) {
-  const exist = await user.findOne({ username });
+user.methods.createHash = async function (record) {
+  const exist = await user.findOne( {username:record.username} );
   if (!exist) {
-    this.password = await bcrypt.hash(password, 5);
+    this.password = await bcrypt.hash(record.password, 5);
   } else {
     return Promise.reject('username exists in database');
   }
