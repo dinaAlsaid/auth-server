@@ -36,11 +36,21 @@ class userCollection {
     let results = await this.Model.find();
     return results;
   }
-  update(_id, record) {
-    return this.Model.findOneAndUpdate(_id, record, { new: true });
-  }
-  delete(_id) {
-    return this.Model.findOneAndDelete(_id);
+
+  async authenticateJWT(token) {
+    try {
+      const tokenObj = jwt.verify(token, SECRET);
+      let user = await this.Model.findOne({username:tokenObj.username});
+      if(user){
+        return Promise.resolve(tokenObj);
+      }else{
+        console.log('user doesn\'t exist or wrong token');
+        return Promise.reject();
+      }
+    }catch{
+      return Promise.reject(e.message);
+    }
   }
 }
+
 module.exports = new userCollection();

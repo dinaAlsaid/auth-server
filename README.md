@@ -19,14 +19,23 @@
 
 - `npm start`
 
+- Endpoints
+  - `/signup`
+  - `/signin`
+  - `/users`
+  - `/oauth`
+  - `/bearerRoute`
+
 #### How to use your library (where applicable)
 
 #### Tests
 
+- Bearer Auth lab not finished yet, routes work fine, tests left
 - OAuth route works
-- Basic Auth routes don't work yet
+- Basic Auth working tests left
 
 #### UML
 
 ![class 11 UML](./class11.png)
 ![class 12 UML](./class12.png)
+![class 13 UML](./class13.png)
