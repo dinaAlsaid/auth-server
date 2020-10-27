@@ -1,6 +1,6 @@
-# LAB - Class 12: OAuth
+# LAB - Class 13: Bearer Auth
 
-## Project: Auth-srever :phase 2
+## Project: Auth-srever :phase 3
 
 ### Author: Dina Alsaid
 
