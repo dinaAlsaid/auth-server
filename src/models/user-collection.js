@@ -14,33 +14,47 @@ class userCollection {
   constructor() {
     this.Model = mongoose.model('user', user);
   }
-  async authenticate(username, password) {
-    let record = await this.Model.find({ username });
-    console.log(record);
-    const valid = await bcrypt.compare(password, record[0].password);
-    console.log('\nauthenticate: does password match?', valid);
-    return record[0];
-  }
+  /* encrypts the password then creates a new user record  */
   async createHash(record) {
     record.password = await bcrypt.hash(record.password, 5);
     console.log('___record after hash___', record);
     const newRec = new this.Model(record);
     return newRec.save();
   }
+
+  async authenticate(username, password) {
+    let record = await this.Model.find({ username });
+    // console.log(record);
+    const valid = await bcrypt.compare(password, record[0].password);
+    console.log('\nauthenticate: does password match?', valid);
+    return record[0];
+  }
+
   generateToken(user) {
     console.log('\n __user__', user);
     const token = jwt.sign({ username: user.username }, SECRET);
     return token;
   }
+
   async findAll() {
     let results = await this.Model.find();
     return results;
   }
-  update(_id, record) {
-    return this.Model.findOneAndUpdate(_id, record, { new: true });
+  async findUser(username) {
+    let results = await this.Model.findOne({ username });
+    return results;
   }
-  delete(_id) {
-    return this.Model.findOneAndDelete(_id);
+
+  async authenticateJWT(token) {
+    const tokenObj = jwt.verify(token, SECRET);
+    let user = await this.Model.findOne({ username: tokenObj.username });
+    if (user) {
+      return Promise.resolve(tokenObj);
+    } else {
+      console.log('user doesn\'t exist or wrong token');
+      return Promise.reject();
+    }
   }
 }
+
 module.exports = new userCollection();

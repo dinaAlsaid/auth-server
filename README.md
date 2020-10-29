@@ -1,6 +1,6 @@
-# LAB - Class 13: Bearer Auth
+# LAB - Class 11: Basic Authentication
 
-## Project: Auth-srever :phase 3
+## Project: Auth-srever
 
 ### Author: Dina Alsaid
 
@@ -19,14 +19,30 @@
 
 - `npm start`
 
+- Endpoints
+  - `/signup`
+  - `/signin`
+  - `/users`
+  - `/oauth`
+  - `/bearerRoute`
+
 #### How to use your library (where applicable)
 
 #### Tests
 
 - OAuth route works
-- Basic Auth routes don't work yet
+- Basic Auth : signup and signin pass
 
 #### UML
 
-![class 11 UML](./class11.png)
-![class 12 UML](./class12.png)
+##### Class 11
+
+![class 11 UML](./class11.png)  
+
+##### Class 12
+
+![class 12 UML](./class12.png)  
+
+##### Class 13
+
+![class 13 UML](./class13.png)  
