@@ -30,9 +30,8 @@
 
 #### Tests
 
-- Bearer Auth lab not finished yet, routes work fine, tests left
 - OAuth route works
-- Basic Auth working tests left
+- Basic Auth : signup and signin pass
 
 #### UML
 
