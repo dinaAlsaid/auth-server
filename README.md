@@ -36,6 +36,14 @@
 
 #### UML
 
-![class 11 UML](./class11.png)
-![class 12 UML](./class12.png)
-![class 13 UML](./class13.png)
+##### Class 11
+
+![class 11 UML](./class11.png)  
+
+##### Class 12
+
+![class 12 UML](./class12.png)  
+
+##### Class 13
+
+![class 13 UML](./class13.png)  
