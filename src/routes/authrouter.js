@@ -11,7 +11,6 @@ router.get('/oauth', oauthMW, oauthSigninHandler);
 router.post('/signup', signupHandler);
 router.post('/signin', BasicAuthMW, signinHandler);
 router.get('/users', getUsersHandler);
-router.get('/bearerRoute', beareMW, bearerAuthHandler);
 
 function oauthSigninHandler(req, res) {
   res.json({ token: req.token });
@@ -29,10 +28,6 @@ function signinHandler(req, res) {
 async function getUsersHandler(req, res) {
   let result = await user.findAll();
   res.json(result);
-}
-
-function bearerAuthHandler(req, res) {
-  res.send('you are authorized');
 }
 
 module.exports = router;
