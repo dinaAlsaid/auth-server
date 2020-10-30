@@ -24,13 +24,16 @@
   - `/signin`
   - `/users`
   - `/oauth`
-  - `/bearerRoute`
+  - `/secret`
 
 #### How to use your library (where applicable)
 
+When signing up: will create a new unique record for the user in the database (username has to be unique) with a hashed password.
+when signing in (Basic auth): 
+
 #### Tests
 
-- Bearer Auth lab not finished yet, routes work fine, tests left
+- Bearer Auth: JWT expires in 1 hour
 - OAuth route works
 - Basic Auth working tests left
 
