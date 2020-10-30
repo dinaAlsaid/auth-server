@@ -25,8 +25,13 @@ function signinHandler(req, res) {
   res.json({ token: req.token });
 }
 async function getUsersHandler(req, res) {
-  let result = await user.findAll();
-  res.json(result);
+  try{
+    let result = await user.findAll();
+    res.json(result);
+  
+  }catch(e){
+    next(e.message);
+  }
 }
 
 module.exports = router;
