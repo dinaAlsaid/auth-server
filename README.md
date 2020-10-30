@@ -1,6 +1,6 @@
 # LAB - Class 13:  Bearer  Auth
 
-## Project: Auth-srever :phase 3
+## Project: Auth-srever
 
 ### Author: Dina Alsaid
 
@@ -36,6 +36,7 @@ trying to access endpoints with bearer token: using token generated from sign in
 
 - Bearer and basic auth tests are in the same file (basicAuth.test.js)
 - Bearer Auth: JWT expires in 4sec for testing purposes, tests pass
+
 - OAuth route works
 - Basic Auth : signup and signin pass
 
