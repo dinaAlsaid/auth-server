@@ -33,7 +33,7 @@ when signing in (Basic auth):
 
 #### Tests
 
-- Bearer Auth: JWT expires in 1 hour
+- Bearer Auth: JWT expires in 5sec for testing purposes
 - OAuth route works
 - Basic Auth working tests left
 
