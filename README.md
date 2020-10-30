@@ -1,4 +1,4 @@
-# LAB - Class 13: Bearer Auth
+# LAB - Class 13:  Bearer  Auth
 
 ## Project: Auth-srever :phase 3
 
