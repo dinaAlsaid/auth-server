@@ -47,6 +47,6 @@ async function getUser(remoteUser) {
     username: remoteUser.login,
     password: 'anythingBecause not actual password',
   };
-  const jwtoken = await user.Model.methods.generateToken(userRecord);
+  const jwtoken = await user.generateToken(userRecord);
   return jwtoken;
 }

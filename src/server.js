@@ -2,12 +2,16 @@
 
 const express = require('express');
 const server = express();
+const cors = require('cors');
 const router = require('./routes/authrouter.js');
+const routerExtra = require('./routes/extra-routes.js');
 
+server.use(cors());
 server.use(express.json());
 server.use(express.static('./public'));
 
 server.use('/',router);
+server.use('/',routerExtra);
 
 module.exports = {
   server: server,

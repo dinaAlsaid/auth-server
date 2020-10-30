@@ -32,7 +32,8 @@ class userCollection {
 
   generateToken(user) {
     console.log('\n __user__', user);
-    const token = jwt.sign({ username: user.username }, SECRET);
+    // jwt expires in 10sec
+    const token = jwt.sign({ username: user.username }, SECRET,{expiresIn:'4s'});
     return token;
   }
 
