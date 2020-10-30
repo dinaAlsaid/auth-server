@@ -29,13 +29,15 @@
 #### How to use your library (where applicable)
 
 When signing up: will create a new unique record for the user in the database (username has to be unique) with a hashed password.
-when signing in (Basic auth): 
+when signing in (Basic auth): when siging in with a valid user and password, a JWT is generated with an expiration time.
+trying to access endpoints with bearer token: using token generated from sign in, token must be used within expiration time (starting from the time the user signed in)
 
 #### Tests
 
-- Bearer Auth: JWT expires in 5sec for testing purposes
+- Bearer and basic auth tests are in the same file (basicAuth.test.js)
+- Bearer Auth: JWT expires in 4sec for testing purposes, tests pass
 - OAuth route works
-- Basic Auth working tests left
+- Basic Auth : signup and signin pass
 
 #### UML
 

@@ -4,7 +4,6 @@ const express = require('express');
 const router = express.Router();
 const BasicAuthMW = require('../auth/middleware/basicAuth');
 const oauthMW = require('../auth/middleware/Oauth.js');
-const beareMW = require('../auth/middleware/bearer.js');
 const user = require('../models/user-collection.js');
 
 router.get('/oauth', oauthMW, oauthSigninHandler);

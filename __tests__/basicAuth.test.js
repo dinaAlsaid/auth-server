@@ -11,6 +11,8 @@ describe('signup and signin', () => {
     password: 'something',
   };
   var jwt;
+  //---------------------------------------Basic----------------------------------------
+  // test sign up with new user
   let encoded = base64.encode(`${newUser.username}:${newUser.password}`);
   it('creates an new user when signup', async () => {
     await mockRequest
@@ -23,6 +25,7 @@ describe('signup and signin', () => {
         expect(usr.password).not.toEqual(newUser.password);
       });
   });
+  // test sign in with existing user
   it('sets token as authorization headers when signin with valid user', async () => {
     await mockRequest
       .post('/signin')
@@ -30,9 +33,32 @@ describe('signup and signin', () => {
       .send(newUser)
       .then((results) => {
         let token = results.body.token;
-        console.log(token);
         expect(token).toBeDefined();
         expect(token).toEqual(jwt);
       });
+  });
+  //---------------------------------------Bearer----------------------------------------
+  // test access route /secret with token from sign in
+  it('allows user to access /secret with a valid token/before token expiration', async () => {
+    await mockRequest
+      .get('/secret')
+      .set('authorization', `Bearer ${jwt}`)
+      .then((result) => {
+        expect(result.text).toEqual('you are authorized');
+      });
+  });
+
+  it('doesn\'t allow user to access /secret after token expiration', async (done) => {
+    await setTimeout(async () => {
+      await mockRequest
+        .get('/secret')
+        .set('authorization', `Bearer ${jwt}`)
+        .then((result) => {
+          // will cause an error with message unauthorised
+          expect(result.status).toEqual(500);
+          expect(result.text).not.toEqual('you are authorized');
+          done();
+        });
+    }, 4000); // wait 4 seconds
   });
 });
