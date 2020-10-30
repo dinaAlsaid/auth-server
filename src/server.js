@@ -6,6 +6,7 @@ const cors = require('cors');
 const router = require('./routes/authrouter.js');
 const routerExtra = require('./routes/extra-routes.js');
 
+server.use(cors());
 server.use(express.json());
 server.use(express.static('./public'));
 
