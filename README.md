@@ -38,6 +38,7 @@ trying to access endpoints with bearer token: using token generated from sign in
 
 #### Tests
 
+- ACL: tests left
 - Bearer and basic auth tests are in the same file (basicAuth.test.js)
 - Bearer Auth: JWT expires in 4sec for testing purposes, tests pass
 
@@ -57,3 +58,7 @@ trying to access endpoints with bearer token: using token generated from sign in
 ##### Class 13
 
 ![class 13 UML](./class13.png)  
+
+##### Class 14
+
+![class 14 UML](./class14.png)  
