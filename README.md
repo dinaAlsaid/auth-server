@@ -1,4 +1,4 @@
-# LAB - Class 13:  Bearer  Auth
+# LAB - Class 14:  ACL
 
 ## Project: Auth-srever
 
@@ -25,6 +25,10 @@
   - `/users`
   - `/oauth`
   - `/secret`
+  - `/read`
+  - `/add`
+  - `/remove`
+  - `/change`
 
 #### How to use your library (where applicable)
 
