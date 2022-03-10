@@ -1,4 +1,4 @@
-# LAB - Class 13:  Bearer  Auth
+# Authentication server
 
 ## Project: Auth-srever
 
@@ -9,11 +9,11 @@
 #### `.env` requirements (where applicable)
 
 - `PORT=3000`
-- `MONGODB_URI=mongodb+srv://dina:dinaalsaid@cluster0.vxahw.mongodb.net/users?retryWrites=true&w=majority`
-- `SECRET=shhhhThisIsASecret`
-- `CLIENT_ID=b19a9b00fc5a28606025`
+<!-- - `MONGODB_URI=mongodb+srv://dina:dinaalsaid@cluster0.vxahw.mongodb.net/users?retryWrites=true&w=majority` -->
+<!-- - `SECRET=shhhhThisIsASecret` -->
+<!-- - `CLIENT_ID=b19a9b00fc5a28606025`
 - `CLIENT_SECRET=e7e30a0e4eaeef24e0459d978904895bb56d37db`
-- `API_SERVER=https://auth-server-amman-d5.herokuapp.com/oauth`
+- `API_SERVER=https://auth-server-amman-d5.herokuapp.com/oauth` -->
 
 #### How to initialize/run your application (where applicable)
 
@@ -32,15 +32,15 @@ When signing up: will create a new unique record for the user in the database (u
 when signing in (Basic auth): when siging in with a valid user and password, a JWT is generated with an expiration time.
 trying to access endpoints with bearer token: using token generated from sign in, token must be used within expiration time (starting from the time the user signed in)
 
-#### Tests
+<!-- #### Tests
 
 - Bearer and basic auth tests are in the same file (basicAuth.test.js)
 - Bearer Auth: JWT expires in 4sec for testing purposes, tests pass
 
 - OAuth route works
-- Basic Auth : signup and signin pass
+- Basic Auth : signup and signin pass -->
 
-#### UML
+<!-- #### UML
 
 ##### Class 11
 
@@ -52,4 +52,4 @@ trying to access endpoints with bearer token: using token generated from sign in
 
 ##### Class 13
 
-![class 13 UML](./class13.png)  
+![class 13 UML](./class13.png)   -->

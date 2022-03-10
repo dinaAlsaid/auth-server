@@ -5,9 +5,9 @@ const superagent = require('superagent');
 const user = require('../../models/user-collection.js');
 const tokenServerUrl = 'https://github.com/login/oauth/access_token';
 const remoteAPI = 'https://api.github.com/user';
-const CLIENT_ID = process.env.CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const API_SERVER = process.env.API_SERVER;
+const CLIENT_ID = process.env.CLIENT_ID || 'b19a9b00fc5a28606025';
+const CLIENT_SECRET = process.env.CLIENT_SECRET || 'e7e30a0e4eaeef24e0459d978904895bb56d37db';
+const API_SERVER = process.env.API_SERVER || 'https://auth-server-amman-d5.herokuapp.com/oauth';
 
 module.exports = async (req, res, next) => {
   const code = req.query.code;
