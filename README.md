@@ -8,12 +8,9 @@
 
 #### `.env` requirements (where applicable)
 
-- `PORT=3000`
-<!-- - `MONGODB_URI=mongodb+srv://dina:dinaalsaid@cluster0.vxahw.mongodb.net/users?retryWrites=true&w=majority` -->
-<!-- - `SECRET=shhhhThisIsASecret` -->
-<!-- - `CLIENT_ID=b19a9b00fc5a28606025`
-- `CLIENT_SECRET=e7e30a0e4eaeef24e0459d978904895bb56d37db`
-- `API_SERVER=https://auth-server-amman-d5.herokuapp.com/oauth` -->
+- `PORT=4000`
+
+
 
 #### How to initialize/run your application (where applicable)
 

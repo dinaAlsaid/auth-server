@@ -16,10 +16,15 @@ class userCollection {
   }
   /* encrypts the password then creates a new user record  */
   async createHash(record) {
-    record.password = await bcrypt.hash(record.password, 5);
-    console.log('___record after hash___', record);
-    const newRec = new this.Model(record);
-    return newRec.save();
+    try{
+      record.password = await bcrypt.hash(record.password, 5);
+      console.log('___record after hash___', record);
+      const newRec = new this.Model(record);
+      return newRec.save();
+      
+    }catch(err){
+      return err.messsage;
+    }
   }
 
   async authenticate(username, password) {
@@ -31,10 +36,14 @@ class userCollection {
   }
 
   generateToken(user) {
-    console.log('\n __user__', user);
-    // jwt expires in 10sec
-    const token = jwt.sign({ username: user.username }, SECRET,{expiresIn:'4s'});
-    return token;
+    try{
+      console.log('\n __user__', user);
+      const token = jwt.sign({ username: user.username }, SECRET);
+      return token;
+
+    }catch(err){
+      return err.message;
+    }
   }
 
   async findAll() {

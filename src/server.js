@@ -6,7 +6,12 @@ const cors = require('cors');
 const router = require('./routes/authrouter.js');
 const routerExtra = require('./routes/extra-routes.js');
 
-server.use(cors());
+const corsOptions ={
+  origin:'*', 
+  credentials:true,           
+  optionSuccessStatus:200
+}
+server.use(cors(corsOptions));
 server.use(express.json());
 server.use(express.static('./public'));
 
