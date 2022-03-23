@@ -4,7 +4,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const server = require('./src/server');
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/users';
+const MONGODB_URI = process.env.MONGODB_URI ;
 const PORT = process.env.PORT || 4000;
 
 mongoose.connect(MONGODB_URI, {
